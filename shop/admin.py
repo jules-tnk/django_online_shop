@@ -3,11 +3,16 @@ from django.contrib import admin
 # Register your models here.
 from .models import Category, Product
 
+class ProductInline(admin.TabularInline):
+    model = Product
+    raw_id_fields = ['category']
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
+    inlines = [ProductInline]
 
 
 @admin.register(Product)

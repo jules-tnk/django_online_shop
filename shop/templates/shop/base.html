@@ -17,7 +17,7 @@
                     {% if total_item > 0 %}
                         Your cart :
                         <a href="{% url 'cart:cart_detail' %}">
-                            {{ total_item }} item{{ total_item|pluralize }}
+                            {{ total_item }} item{{ total_item|pluralize }}, 
                             {{ cart.get_total_price }} DHS
                         </a>
                     {% else %}
